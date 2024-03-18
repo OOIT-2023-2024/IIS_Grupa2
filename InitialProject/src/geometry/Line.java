@@ -1,20 +1,35 @@
 package geometry;
 
 public class Line {
-	
+
 	private Point startPoint;
 	private Point endPoint;
 	private boolean selected;
-	
+
+	public Line() {
+	}
+
+	public Line(Point startPoint, Point endPoint) {
+		this.startPoint = startPoint;
+		this.endPoint = endPoint;
+	}
+
+	public Line(Point startPoint, Point endPoint,
+			boolean selected) {
+		//this je poziv konstruktora klase Line
+		this(startPoint, endPoint);
+		this.selected = selected;
+	}
+
 	public double length() {
 		double distance = startPoint.distance(endPoint);
 		return distance;
 	}
-	
+
 	public Point getStartPoint() {
 		return this.startPoint;
 	}
-	
+
 	public void setStartPoint(Point startPoint) {
 		this.startPoint = startPoint;
 	}
@@ -35,4 +50,9 @@ public class Line {
 		this.selected = selected;
 	}
 	
+	public String toString() {
+		return startPoint.toString() + " --> " 
+				+ endPoint; // (xS,yS) --> (xE,yE)
+	}
+
 }

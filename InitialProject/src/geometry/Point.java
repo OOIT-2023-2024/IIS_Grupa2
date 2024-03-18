@@ -6,6 +6,37 @@ public class Point {
 	private int y;
 	private boolean selected;
 	
+	public Point() {
+		
+	}
+	
+	public Point(int x, int y) {
+		this.x = x;
+		this.y = y;
+	}
+	
+	public Point(int x, int y, boolean selected) {
+		this(x,y);
+		this.selected = selected;
+	}
+	
+	//ne dozvoljava
+	/*public Point(int x, int yKoordinata) {
+		this.x = x;
+		this.y = y;
+	}*/
+	
+	/*moze ovo ali nam to ne treba vec je samo primer
+	 * public Point(int x, String yKoordinata) {
+		this.x = x;
+		this.y = y;
+	}
+	
+	public Point(String xKoordinata, int y) {
+		this.x = x;
+		this.y = y;
+	}*/
+	
 	public double distance(Point point2) {
 		//this.x je x koordinata prveTacke 
 			//(one nad kojom smo pozvali metodu distance)
@@ -14,6 +45,18 @@ public class Point {
 		int b = this.y - point2.y;
 		double distance = Math.sqrt(a*a+b*b);
 		return distance;
+	}
+	
+	public boolean equals(Object obj) {
+		if(obj instanceof Point) {
+			if(this.x == ((Point)obj).x && 
+					this.y == ((Point)obj).y &&
+					this.selected == ((Point)obj).selected)
+				return true;
+			return false;
+		}
+		return false;
+		
 	}
 	
 	public int getX() {
@@ -42,6 +85,10 @@ public class Point {
 
 	public void setSelected(boolean selected) {
 		this.selected = selected;
+	}
+	
+	public String toString() {
+		return "("+this.x+","+this.y+")";
 	}
 	
 	
