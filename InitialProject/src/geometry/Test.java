@@ -111,7 +111,10 @@ public class Test {
 		
 		System.out.println(novaTacka.equals(newLine1));
 		
-		
+		//pete vezbe
+		System.out.println(circle1.contains(10, 15));
+		System.out.println(circle1
+				.contains(new Point(10,15)));
 	}
 
 }

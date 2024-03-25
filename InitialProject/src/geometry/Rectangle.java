@@ -44,8 +44,17 @@ public class Rectangle {
 	}
 
 	public boolean contains(int x, int y) {
-		return (x >= this.upperLeftPoint.getX() && x <= this.upperLeftPoint.getX() + width
-				&& y >= this.upperLeftPoint.getY() && y <= this.upperLeftPoint.getY() + height);
+		return (x >= this.upperLeftPoint.getX() 
+				&& x <= this.upperLeftPoint.getX() + width
+				&& y >= this.upperLeftPoint.getY() 
+				&& y <= this.upperLeftPoint.getY() + height);
+	}
+	//demonstracija overloadinga nad metodom koja nije konstruktor
+	public boolean contains(Point tackaKlika) {
+		return (tackaKlika.getX() >= this.upperLeftPoint.getX() 
+				&& tackaKlika.getX() <= this.upperLeftPoint.getX() + width
+				&& tackaKlika.getY() >= this.upperLeftPoint.getY() 
+				&& tackaKlika.getY() <= this.upperLeftPoint.getY() + height);
 	}
 
 	public Point getUpperLeftPoint() {
