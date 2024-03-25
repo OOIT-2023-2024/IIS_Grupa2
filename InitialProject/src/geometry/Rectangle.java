@@ -11,15 +11,13 @@ public class Rectangle {
 
 	}
 
-	public Rectangle(Point upperLeftPoint, int width, 
-			int height) {
+	public Rectangle(Point upperLeftPoint, int width, int height) {
 		this.upperLeftPoint = upperLeftPoint;
 		this.width = width;
 		this.height = height;
 	}
 
-	public Rectangle(Point upperLeftPoint, int width,
-			int height, boolean selected) {
+	public Rectangle(Point upperLeftPoint, int width, int height, boolean selected) {
 		this(upperLeftPoint, width, height);
 		this.selected = selected;
 	}
@@ -31,24 +29,23 @@ public class Rectangle {
 	public int circumference() {
 		return 2 * width + 2 * height;
 	}
-	
+
 	public boolean equals(Object obj) {
-		if(obj instanceof Rectangle) {
+		if (obj instanceof Rectangle) {
 			Rectangle pomocna = (Rectangle) obj;
-			if (this.upperLeftPoint.equals(pomocna.upperLeftPoint) && this.width == pomocna.width 
-					&& this.height == pomocna.height)
+			if (this.upperLeftPoint
+					.equals(pomocna.upperLeftPoint) 
+					&& this.width == pomocna.width
+					&& this.height == pomocna.height
+					&& this.selected == pomocna.selected)
 				return true;
-			else 
-				return false;
-		} else
-			return false;
+		}
+		return false;
 	}
 
 	public boolean contains(int x, int y) {
-		return (x >= this.upperLeftPoint.getX() 
-				&& x <= this.upperLeftPoint.getX() + width
-				&& y >= this.upperLeftPoint.getY()
-				&& y <= this.upperLeftPoint.getY() + height);
+		return (x >= this.upperLeftPoint.getX() && x <= this.upperLeftPoint.getX() + width
+				&& y >= this.upperLeftPoint.getY() && y <= this.upperLeftPoint.getY() + height);
 	}
 
 	public Point getUpperLeftPoint() {
@@ -82,11 +79,9 @@ public class Rectangle {
 	public void setSelected(boolean selected) {
 		this.selected = selected;
 	}
-	
+
 	public String toString() {
-		return "Upper left point: " + upperLeftPoint 
-				+ ", width = " + width 
-				+ ", height = " + height;
+		return "Upper left point: " + upperLeftPoint + ", width = " + width + ", height = " + height;
 	}
 
 }

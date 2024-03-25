@@ -29,7 +29,9 @@ public class Circle {
 	public boolean equals(Object obj) {
 		if (obj instanceof Circle) {
 			Circle pomocna = (Circle) obj; 
-			if (this.center.equals(pomocna.center) && this.radius == pomocna.radius) 
+			if (this.center.equals(pomocna.center) 
+					&& this.radius == pomocna.radius
+					&& this.selected == pomocna.selected) 
 				return true; 
 			else
 				return false; 

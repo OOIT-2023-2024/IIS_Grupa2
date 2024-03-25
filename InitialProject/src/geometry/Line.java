@@ -29,12 +29,15 @@ public class Line {
 	public boolean equals(Object obj) {
 		if (obj instanceof Line) {
 			Line pomocna = (Line) obj;
-			if (this.startPoint.equals(pomocna.startPoint) && this.endPoint.equals(pomocna.endPoint))
+			if (this.startPoint
+					.equals(pomocna.startPoint) 
+					&& this.endPoint
+					.equals(pomocna.endPoint)
+					&& this.selected == 
+					pomocna.selected)
 				return true;
-			else 
-				return false;
-		} else 
-			return false;
+		}  
+		return false;
 	}
 
 	public boolean contains(int x, int y) {
