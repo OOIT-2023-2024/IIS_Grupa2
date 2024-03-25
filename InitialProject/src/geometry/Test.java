@@ -115,6 +115,17 @@ public class Test {
 		System.out.println(circle1.contains(10, 15));
 		System.out.println(circle1
 				.contains(new Point(10,15)));
+		
+		Donut donut1 = new Donut(novaTacka, 50, 45);
+		//promena radiusa na 60
+		donut1.setRadius(60);
+		System.out.println(donut1);
+		
+		//inicijalizacija
+		//dinamicko povezivanje
+		Circle donut2 = new Donut(novaTacka, 50, 45);
+		Object donut3 = new Donut(novaTacka, 50, 45);
+		
 	}
 
 }

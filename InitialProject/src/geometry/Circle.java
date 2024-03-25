@@ -4,7 +4,7 @@ public class Circle {
 	
 	private Point center;
 	private int radius;
-	private boolean selected;
+	protected boolean selected;
 	
 	public Circle() {}
 	
