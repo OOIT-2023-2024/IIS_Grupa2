@@ -1,40 +1,71 @@
 package geometry;
 
-public class Donut extends Circle{
-	//ostala nasledjujemo od kruga
-	//pa ih ne moramo eksplicitno definisati
+public class Donut extends Circle {
+	// ostala nasledjujemo od kruga
+	// pa ih ne moramo eksplicitno definisati
 	private int innerRadius;
-	
+
 	public Donut() {
-		//u pozadini poziva: super();
-		//to je poziv konstruktora nadređene klase
-		//i on nam setuje ostale propertyje koji
-		//nisu innerRadius
+		// u pozadini poziva: super();
+		// to je poziv konstruktora nadređene klase
+		// i on nam setuje ostale propertyje koji
+		// nisu innerRadius
 	}
-	
+
 	public Donut(Point center, int radius, int innerRadius) {
-		//poziv konstruktora iz Circle
-		//mora biti prva naredba
+		// poziv konstruktora iz Circle
+		// mora biti prva naredba
 		super(center, radius);
 		this.innerRadius = innerRadius;
 	}
-	
-	public Donut(Point center, int radius, int innerRadius,
-			boolean selected) {
-		//poziv konstruktora iz Donut
-		//this mora da bude prva naredba
+
+	public Donut(Point center, int radius, int innerRadius, boolean selected) {
+		// poziv konstruktora iz Donut
+		// this mora da bude prva naredba
 		this(center, radius, innerRadius);
-		
-		//selected je protected u klasi Circle
-		//pa je vidljivo u klasama koje nasledjuju Circle
+
+		// selected je protected u klasi Circle
+		// pa je vidljivo u klasama koje nasledjuju Circle
 		setSelected(selected);
-		//ove naredbe ispod mogu samo ako je selected protected
-		//ako je private ne moze
-		/*this.selected = selected;
-		super.selected = selected;*/
+		// ove naredbe ispod mogu samo ako je selected protected
+		// ako je private ne moze
+		/*
+		 * this.selected = selected; super.selected = selected;
+		 */
 	}
-	
-	//ostale get i set metode su u krugu
+
+	public double area() {
+		return super.area() - innerRadius * innerRadius * Math.PI;
+	}
+
+	public double circumference() {
+		return super.circumference() + 2 * innerRadius * Math.PI;
+	}
+
+	public boolean equals(Object obj) {
+
+		if (obj instanceof Donut) {
+			Donut pomocna = (Donut) obj;
+			if (getCenter().equals(pomocna.getCenter()) && getRadius() == pomocna.getRadius()
+					&& innerRadius == pomocna.getInnerRadius())
+				return true;
+			else
+				return false;
+		} else
+			return false;
+	}
+
+	public boolean contains(int x, int y) {
+
+		return super.contains(x, y) && getCenter().distance(new Point(x, y)) >= innerRadius;
+	}
+
+	public boolean contains(Point p) {
+
+		return this.contains(p.getX(), p.getY());
+	}
+
+	// ostale get i set metode su u krugu
 	public int getInnerRadius() {
 		return innerRadius;
 	}
@@ -42,10 +73,10 @@ public class Donut extends Circle{
 	public void setInnerRadius(int innerRadius) {
 		this.innerRadius = innerRadius;
 	}
-	
+
 	public String toString() {
-		//poziv toString daje rekurziju
-		//pa dodajemo super kako bismo naglasili da je to metoda iz cicle
-		return super.toString() + ", innerRadius = "+innerRadius;
+		// poziv toString daje rekurziju
+		// pa dodajemo super kako bismo naglasili da je to metoda iz cicle
+		return super.toString() + ", innerRadius = " + innerRadius;
 	}
 }
