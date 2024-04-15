@@ -126,6 +126,12 @@ public class Test {
 		Circle donut2 = new Donut(novaTacka, 50, 45);
 		Object donut3 = new Donut(novaTacka, 50, 45);
 		
+		//apstraktne klase
+		//Shape shape1 = new Shape();--ne moze da se instancira objekat
+		Shape shape1 = new Point(50,100);
+		//selected je na false zahvaljujuci konstruktoru iz Shape-a
+		System.out.println(shape1.isSelected());
+		System.out.println(((Point)shape1).getX());
 	}
 
 }
