@@ -33,6 +33,9 @@ public class Drawing extends JPanel {
 		Circle circle1 = new Circle(new Point(100,100),50);
 		g.setColor(Color.green);
 		circle1.getCenter().draw(g);
+		
+		circle1.moveTo(100, 200);
+		circle1.draw(g);
 	}
 
 }

@@ -74,6 +74,15 @@ public class Donut extends Circle {
 				getCenter().getY()-innerRadius,
 				2*innerRadius, 2*innerRadius);
 	}
+	
+	@Override
+	public int compareTo(Object obj) {
+		if(obj instanceof Donut) {
+			Donut shapeToCompare = (Donut)obj;
+			return (int)(this.area() - shapeToCompare.area());
+		}
+		return 0;
+	}
 
 	// ostale get i set metode su u krugu
 	public int getInnerRadius() {
