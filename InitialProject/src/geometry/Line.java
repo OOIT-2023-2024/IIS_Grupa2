@@ -69,7 +69,8 @@ public class Line extends Shape{
 	public int compareTo(Object obj) {
 		if(obj instanceof Line) {
 			Line shapeToCompare = (Line)obj;
-			return (int)(this.length() - shapeToCompare.length());
+			return (int)(this.length() 
+					- shapeToCompare.length());
 		}
 		return 0;
 	}
