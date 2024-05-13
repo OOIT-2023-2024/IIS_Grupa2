@@ -2,7 +2,9 @@ package geometry;
 
 import java.awt.Color;
 import java.awt.Graphics;
+import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.Iterator;
 
 import javax.swing.JFrame;
 import javax.swing.JPanel;
@@ -53,6 +55,41 @@ public class Drawing extends JPanel {
 		for (int i = 0; i < rectangles.length; i++) {
 			System.out.println(rectangles[i]);
 		}
+		
+		//Vezbe 8
+		Point p81=new Point(150,160);
+		Circle c81 = new Circle(p81, 150);
+		Rectangle r81 = new Rectangle(p81, 80, 90);
+		ArrayList<Shape> shapes = new ArrayList<Shape>();
+		shapes.add(p81);
+		shapes.add(c81);
+		shapes.add(r81);
+		System.out.println("Elementi liste");
+		Iterator<Shape> itShape = shapes.iterator();
+		while(itShape.hasNext()) {
+			Shape tempShape = itShape.next();
+			System.out.println(tempShape);
+			tempShape.draw(g);
+			//System.out.println(itShape.next());
+			//itShape.next().draw(g);
+		}
+		
+		//generisanje izuzetka
+		try {
+			//c81.setRadius(80);
+			//c81.setRadius(-50);
+			Integer.parseInt("pet");
+		} catch (Exception e) {
+			System.out.println(e.getMessage());
+		} finally {
+			System.out.println("Ja se uvek izvrsavam");
+		}
+		System.out.println("Da li se izvrsavam (1)?");
+		
+		Point p82 = new Point(400, 400, true);
+		g.setColor(Color.black);
+		p82.draw(g);
+		c81.draw(g);
 	}
 
 }

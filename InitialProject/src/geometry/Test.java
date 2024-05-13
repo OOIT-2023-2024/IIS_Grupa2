@@ -118,7 +118,7 @@ public class Test {
 		
 		Donut donut1 = new Donut(novaTacka, 50, 45);
 		//promena radiusa na 60
-		donut1.setRadius(60);
+		//donut1.setRadius(60);
 		System.out.println(donut1);
 		
 		//inicijalizacija
